@@ -13,28 +13,45 @@
     :root{
       --bg:#0b0d12; --card:#121520; --muted:#8b93a7; --text:#e8ecf6; --brand:#5c8cff;
       --accent:#00d3a7; --danger:#ff5b66; --warning:#ffb020; --ring:rgba(92,140,255,.35);
-      --border:#222738;
+      --border:#222738; --glass:rgba(10,14,30,.55);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
       color:var(--text); background: radial-gradient(1200px 600px at 15% 0%,#111529 0%,#0b0d12 60%) fixed;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 56px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-    .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#8aa8ff);box-shadow:0 8px 30px rgba(92,140,255,.35), inset 0 0 12px rgba(255,255,255,.15)}
-    .brand h1{font-size:18px;letter-spacing:.4px;margin:0}
-    .pill{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+
+    /* ① 置顶吸附条：官网入口（极醒目） */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:linear-gradient(180deg,rgba(92,140,255,.18),rgba(92,140,255,.06));
+      border-bottom:1px solid var(--ring);
+      box-shadow:0 10px 30px rgba(92,140,255,.18);
+      backdrop-filter: blur(10px);
+    }
+    .topbar-inner{
+      max-width:1100px;margin:0 auto;display:flex;gap:10px;align-items:center;justify-content:space-between;
+      padding:10px 16px;
+    }
+    .tb-left{display:flex;align-items:center;gap:10px}
+    .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--brand),#8aa8ff)}
+    .tb-title{font-weight:800;letter-spacing:.2px}
     .entrances{display:flex;gap:10px;flex-wrap:wrap}
     .linkbtn{
-      font-weight:700;font-size:13px;padding:8px 12px;border-radius:999px;border:1px solid var(--ring);
-      background:linear-gradient(180deg, rgba(92,140,255,.18), rgba(92,140,255,.06));
-      box-shadow:0 6px 22px rgba(92,140,255,.18)
+      display:inline-flex;align-items:center;gap:8px;
+      font-weight:800;font-size:13px;padding:10px 14px;border-radius:999px;
+      border:1px solid var(--ring); background:rgba(15,20,37,.6)
     }
+    .linkbtn em{font-style:normal;opacity:.9}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:22px 20px 56px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 14px}
+    .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand h1{font-size:18px;letter-spacing:.4px;margin:0}
+    .pill{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
 
     .alert{display:flex;gap:12px;align-items:flex-start;background:rgba(255,91,102,.1);
       border:1px solid rgba(255,91,102,.35); border-radius:14px; padding:14px 16px; margin:12px 0 22px}
@@ -49,6 +66,21 @@
     .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:#0f1425;border:1px solid var(--border);color:#c9d1ff}
     .badge{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 12px;border-radius:10px;background:rgba(0,211,167,.12);border:1px solid rgba(0,211,167,.35); color:#b7ffee; font-size:14px}
     .badge.warn{background:rgba(255,176,32,.12);border-color:rgba(255,176,32,.35);color:#ffe7bb}
+
+    /* ② 首屏大入口 CTA */
+    .cta-row{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px
+    }
+    @media (max-width:720px){ .cta-row{grid-template-columns:1fr} }
+    .cta{
+      display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;
+      padding:16px;border-radius:14px;background:linear-gradient(180deg, rgba(92,140,255,.22), rgba(92,140,255,.08));
+      border:1px solid var(--ring); box-shadow:0 10px 34px rgba(92,140,255,.22);
+      font-weight:800; font-size:16px; letter-spacing:.3px; transition:transform .08s ease
+    }
+    .cta:hover{transform:translateY(-1px)}
+    .cta.sub{background:linear-gradient(180deg, rgba(0,211,167,.22), rgba(0,211,167,.08)); border-color:rgba(0,211,167,.35)}
+    .cta small{display:block;font-weight:600;font-size:12px;opacity:.85}
 
     .grid{display:grid;grid-template-columns:1.1fr .9fr; gap:18px; margin-top:18px}
     @media (max-width:900px){ .grid{grid-template-columns:1fr} }
@@ -68,12 +100,12 @@
       padding:14px 16px;border-radius:12px;border:1px solid var(--ring);
       background:linear-gradient(180deg, rgba(92,140,255,.18), rgba(92,140,255,.06));
       box-shadow:0 8px 30px rgba(92,140,255,.15);
-      font-weight:600;transition:transform .08s ease, box-shadow .2s ease
+      font-weight:700;transition:transform .08s ease, box-shadow .2s ease
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 10px 34px rgba(92,140,255,.25)}
     .btn.sub{background:linear-gradient(180deg, rgba(0,211,167,.18), rgba(0,211,167,.06));border-color:rgba(0,211,167,.35)}
-    .btn small{font-weight:500;color:#dbe5ff;opacity:.85}
-    .btn .hint{font-size:12px;color:#cfe8ff;opacity:.8}
+    .btn small{font-weight:600;color:#dbe5ff;opacity:.9}
+    .btn .hint{font-size:12px;opacity:.85}
 
     .note{margin-top:12px; padding:12px 14px; background:rgba(255,176,32,.12); border:1px solid rgba(255,176,32,.35);
       border-radius:12px; color:#ffe7bb; font-size:14px}
@@ -82,13 +114,45 @@
     .faq{display:grid;gap:12px}
     .qa{border:1px solid var(--border); border-radius:12px; background:#0f1322; padding:14px}
     .qa dt{font-weight:700;margin-bottom:6px}
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
     .hl-red{color:#ff616b;font-weight:800}
     .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);margin:22px 0}
     .kbd{font:600 12px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:3px 6px;border-radius:6px;background:#0f1220;border:1px solid #2a2f44;color:#c9d1ff}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* ③ 右下角悬浮入口 */
+    .fab{
+      position:fixed; right:16px; bottom:16px; z-index:60;
+      display:flex;gap:10px;flex-direction:column;
+    }
+    .fab a{
+      display:flex;align-items:center;gap:8px;
+      padding:12px 14px;border-radius:999px;background:var(--glass);
+      border:1px solid var(--ring);box-shadow:0 12px 32px rgba(92,140,255,.25);
+      font-weight:800
+    }
+    .fab small{opacity:.85}
   </style>
 </head>
 <body>
+  <!-- 置顶吸附条：超醒目官网入口 -->
+  <div class="topbar" role="navigation" aria-label="官网入口快速通道">
+    <div class="topbar-inner">
+      <div class="tb-left">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="tb-title">官网入口</div>
+      </div>
+      <nav class="entrances">
+        <a class="linkbtn" href="https://shisuwangluo.com" target="_blank" rel="noopener" aria-label="打开 shisuwangluo.com">
+          🚀 <em>shisuwangluo.com</em>
+        </a>
+        <a class="linkbtn" href="https://sswl.fun" target="_blank" rel="noopener" aria-label="打开 sswl.fun">
+          🌐 <em>sswl.fun</em>
+        </a>
+      </nav>
+    </div>
+  </div>
+
   <div class="wrap">
     <header>
       <div class="brand">
@@ -96,10 +160,6 @@
         <h1>时速网络 · 迁移通知</h1>
         <span class="pill">公告发布日期：2025-10-31</span>
       </div>
-      <nav class="entrances" aria-label="官网入口">
-        <a class="linkbtn" href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a>
-        <a class="linkbtn" href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a>
-      </nav>
     </header>
 
     <div class="alert" role="alert" aria-live="polite">
@@ -113,6 +173,19 @@
     <section class="hero" aria-labelledby="heroTitle">
       <h2 id="heroTitle">因不可抗力导致的品牌迁移说明</h2>
       <p>为保障服务稳定与后续维护，我们已完成从“飞鸟加速”到“时速网络”的无缝迁移。</p>
+
+      <!-- 首屏超大入口按钮（再次强化） -->
+      <div class="cta-row" aria-label="官网入口（首屏）">
+        <a class="cta" href="https://shisuwangluo.com" target="_blank" rel="noopener">
+          进入官网：shisuwangluo.com
+          <small>购买套餐 / 下载客户端 / 登录</small>
+        </a>
+        <a class="cta sub" href="https://sswl.fun" target="_blank" rel="noopener">
+          备用入口：sswl.fun
+          <small>同源镜像 / 访问更稳</small>
+        </a>
+      </div>
+
       <div class="tagrow" aria-label="关键信息标签">
         <span class="tag">账号已迁移</span>
         <span class="tag">余额已迁移</span>
@@ -146,7 +219,7 @@
             <span class="ico">③</span>
             <div>
               <div class="strong">使用须知</div>
-              <div class="muted">原飞鸟账号可直接在官网登录；<b>首次使用前，请先购买套餐</b>以激活服务并获得完整节点。</div>
+              <div class="muted">原飞鸟账号可直接在 <b>shisuwangluo.com / sswl.fun</b> 登录；<b>首次使用前，请先购买套餐</b>以激活服务并获得完整节点。</div>
             </div>
           </li>
           <li class="li">
@@ -167,7 +240,7 @@
             <span>安卓 / Windows / macOS</span>
             <small class="hint">时速网络官方客户端（官网获取）</small>
           </a>
-          <a class="btn sub" href="https://sswl.fun" rel="noopener" target="_blank" aria-label="前往官网查看 iOS 使用说明（Sing-box）">
+          <a class="btn sub" href="https://sswl.fun" rel="noopener" target="_blank" aria-label="前往备用入口查看 iOS 使用说明（Sing-box）">
             <span>iOS（苹果）</span>
             <small class="hint">请使用 <b>Sing-box</b>（官网指引）</small>
           </a>
@@ -190,7 +263,7 @@
         </div>
         <div class="qa">
           <dt>使用前需要做什么？</dt>
-          <dd class="muted">请先在官网 <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a> 或 <a href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a> 购买套餐并激活，随后下载官方推荐客户端登录使用。</dd>
+          <dd class="muted">请先在 <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a> 或 <a href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a> 购买套餐并激活，随后下载官方推荐客户端登录使用。</dd>
         </div>
         <div class="qa">
           <dt>为什么第三方客户端速度不理想？</dt>
@@ -204,6 +277,12 @@
       <br />
       快捷键：<span class="kbd">Ctrl</span> + <span class="kbd">D</span> 收藏此页，随时查看最新通知。
     </footer>
+  </div>
+
+  <!-- 右下角悬浮入口（第三重强化） -->
+  <div class="fab" aria-label="快速入口悬浮按钮">
+    <a href="https://shisuwangluo.com" target="_blank" rel="noopener">🚀 shisuwangluo.com <small>主入口</small></a>
+    <a href="https://sswl.fun" target="_blank" rel="noopener">🌐 sswl.fun <small>备用入口</small></a>
   </div>
 </body>
 </html>
