@@ -7,11 +7,9 @@
   <meta name="description" content="原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系等已同步；采用月租包段模式。所有账号已补偿 ¥5。原飞鸟账号可直接登录使用，首次使用前须先购买套餐。" />
   <meta name="theme-color" content="#0b0d12" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="preconnect" href="https://shisuwangluo.com" crossorigin>
   <link rel="preconnect" href="https://sswl.fun" crossorigin>
   <style>
-    /* ===== 基础与移动优先 ===== */
     :root{
       --bg:#0b0d12; --card:#121520; --muted:#9aa3b5; --text:#eef2fb; --brand:#5c8cff;
       --accent:#00d3a7; --danger:#ff5b66; --ring:rgba(92,140,255,.35); --border:#222738;
@@ -22,14 +20,12 @@
     body{
       margin:0; color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-      background:#0b0d12;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      background:#0b0d12; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
       -webkit-tap-highlight-color:transparent;
     }
     a{color:inherit;text-decoration:none}
     :focus-visible{outline:2px solid var(--brand); outline-offset:2px}
 
-    /* ===== 顶部轻量条（移动端保留可见、紧凑） ===== */
     .topbar{
       position:sticky; top:0; z-index:50; background:#0d1222cc; backdrop-filter:saturate(140%) blur(8px);
       border-bottom:1px solid #1e2440;
@@ -41,10 +37,9 @@
     .linkbtn{
       display:inline-flex; align-items:center; gap:6px; font-weight:800; font-size:13px;
       padding:10px 14px; min-height:48px; border-radius:999px; border:1px solid var(--ring);
-      background:#111733; touch-action:manipulation;
+      background:#111733;
     }
 
-    /* ===== 主容器 ===== */
     .wrap{max-width:1000px; margin:0 auto; padding:16px 14px 92px}
     header{display:flex; align-items:center; justify-content:space-between; gap:10px; margin:6px 0 10px}
     .brand{display:flex; align-items:center; gap:10px}
@@ -65,7 +60,6 @@
     .hero h2{margin:0 0 6px; font-size:clamp(18px,5vw,24px)}
     .hero p{margin:0; color:var(--muted)}
 
-    /* 首屏大按钮（拇指友好） */
     .cta-col{display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px}
     .cta{
       display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
@@ -88,14 +82,12 @@
     .muted{color:var(--muted)}
     .strong{color:#fff}
 
-    /* 下载区按钮（两列在大屏，手机单列） */
     .row{display:grid; grid-template-columns:1fr; gap:10px}
     @media (min-width:760px){ .row{grid-template-columns:1fr 1fr} }
     .btn{
       display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
       padding:14px; min-height:56px; border-radius:12px; border:1px solid var(--ring);
       background:#101632; font-weight:800; text-align:center;
-      touch-action:manipulation;
     }
     .btn.sub{background:#0f1f1c; border-color:rgba(0,211,167,.35)}
     .btn .hint{font-size:12px; opacity:.9}
@@ -109,7 +101,6 @@
 
     footer{margin-top:18px; color:var(--muted); font-size:13px; text-align:center; padding-bottom: calc(12px + env(safe-area-inset-bottom))}
 
-    /* ===== 底部悬浮双入口（仅移动/小屏显示） ===== */
     .dock{
       position:fixed; left:0; right:0; bottom:0; z-index:60; padding:
         10px 12px calc(10px + env(safe-area-inset-bottom));
@@ -124,14 +115,12 @@
     .dock a.alt{background:#0e231d; border-color:rgba(0,211,167,.35)}
     @media (min-width:760px){ .dock{display:none} }
 
-    /* ===== 降低动画，保证流畅 ===== */
     @media (prefers-reduced-motion:reduce){
       *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
     }
   </style>
 </head>
 <body>
-  <!-- 顶部紧凑入口 -->
   <div class="topbar" role="navigation" aria-label="官网入口">
     <div class="topbar-inner">
       <div class="logo" aria-hidden="true"></div>
@@ -161,15 +150,16 @@
     </div>
 
     <section class="hero" aria-labelledby="heroTitle">
-      <h2 id="heroTitle">迁移说明（移动端优化）</h2>
-      <p>为保障稳定与后续维护，我们已完成从“飞鸟加速”至“时速网络”的无缝迁移。</p>
+      <h2 id="heroTitle">迁移说明</h2>
+      <p>为保障服务稳定与后续维护，我们已完成从“飞鸟加速”至“时速网络”的迁移。</p>
 
-      <!-- 首屏拇指友好入口 -->
-      <div class="cta-col" aria-label="首屏入口">
+      <div class="cta-col" aria-label="官网入口">
         <a class="cta" href="https://shisuwangluo.com" target="_blank" rel="noopener">
           进入官网：shisuwangluo.com
           <small>购买套餐 / 下载客户端 / 登录</small>
         </a>
+      </div>
+      <div class="cta-col" aria-label="备用入口" style="margin-top:6px">
         <a class="cta alt" href="https://sswl.fun" target="_blank" rel="noopener">
           备用入口：sswl.fun
           <small>镜像同源 / 访问更稳</small>
@@ -201,7 +191,7 @@
           <span class="ico">③</span>
           <div>
             <div class="strong">使用须知</div>
-            <div class="muted">原飞鸟账号可直接在 <b>shisuwangluo.com / sswl.fun</b> 登录；首次使用前请先购买套餐以激活服务与完整节点。</div>
+            <div class="muted">请在 <b>shisuwangluo.com / sswl.fun</b> 登录；首次使用前先购买套餐以激活服务与完整节点。</div>
           </div>
         </li>
         <li class="li">
@@ -252,8 +242,7 @@
     </footer>
   </main>
 
-  <!-- 底部悬浮双入口：拇指就近操作，含安全区适配 -->
-  <nav class="dock" aria-label="快速入口（底部悬浮）">
+  <nav class="dock" aria-label="快速入口">
     <a href="https://shisuwangluo.com" target="_blank" rel="noopener" aria-label="主入口 shisuwangluo.com">🚀 主入口 · shisuwangluo.com</a>
     <a class="alt" href="https://sswl.fun" target="_blank" rel="noopener" aria-label="备用入口 sswl.fun">🌐 备用入口 · sswl.fun</a>
   </nav>
