@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>迁移通知｜时速网络</title>
-  <meta name="description" content="原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系等已同步；采用月租包段模式。所有账号已补偿 ¥5。原飞鸟账号可直接登录使用，首次使用前须先购买套餐。" />
+  <meta name="description" content="原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系等已同步；采用月租包段模式。原飞鸟账号可直接登录使用，首次使用前需先购买套餐。购买时输入优惠码 10save 立减 ¥10。" />
   <meta name="theme-color" content="#0b0d12" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
   <link rel="preconnect" href="https://shisuwangluo.com" crossorigin>
@@ -72,6 +72,7 @@
 
     .badge{display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:8px 10px;
       border-radius:10px; background:#0c211d; border:1px solid rgba(0,211,167,.35); color:#b7ffec; font-size:14px}
+    .badge.coupon{background:#0e1c2e; border-color:#3a5aa8; color:#dbe7ff}
     .badge.warn{background:#2a240f; border-color:#66551b; color:#ffe9b5}
 
     .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin-top:12px}
@@ -117,6 +118,10 @@
 
     @media (prefers-reduced-motion:reduce){
       *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+    }
+    .code{
+      font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      padding:6px 10px; border-radius:8px; background:#0f1428; border:1px solid #2a355a; color:#cfe0ff
     }
   </style>
 </head>
@@ -166,7 +171,11 @@
         </a>
       </div>
 
-      <div class="badge">✅ 全体用户已获 <strong>¥5</strong> 余额补偿</div>
+      <!-- 优惠券提示 -->
+      <div class="badge coupon" aria-live="polite">
+        🎟️ 购买时输入优惠码 <span class="code">10save</span> ，立减 <b>¥10</b>
+      </div>
+
       <div class="badge warn">📌 原飞鸟账号可直接登录；<b>首次使用前须先购买套餐</b></div>
     </section>
 
@@ -197,8 +206,8 @@
         <li class="li">
           <span class="ico">④</span>
           <div>
-            <div class="strong">补偿</div>
-            <div class="muted">所有账号已统一补偿 <b>¥5</b> 余额（登录后查看账单）。</div>
+            <div class="strong">优惠券</div>
+            <div class="muted">购买时输入优惠码 <span class="code">10save</span> ，可立减 <b>¥10</b>。</div>
           </div>
         </li>
       </ul>
@@ -233,6 +242,10 @@
         <div class="qa">
           <dt>使用前要做什么？</dt>
           <dd class="muted">请先在 <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a> 或 <a href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a> 购买套餐并激活，然后下载官方推荐客户端登录使用。</dd>
+        </div>
+        <div class="qa">
+          <dt>是否有优惠？</dt>
+          <dd class="muted">结算时输入优惠码 <span class="code">10save</span> ，立减 <b>¥10</b>。</dd>
         </div>
       </dl>
     </section>
