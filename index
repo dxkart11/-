@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>迁移通知｜时速网络</title>
+  <meta name="description" content="原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系等均已同步。采用月租包段模式；所有账号已补偿 ¥5 余额。原飞鸟账号可直接登录使用，但使用前需先购买套餐。请下载官方推荐客户端。" />
+  <meta property="og:title" content="迁移通知｜时速网络" />
+  <meta property="og:description" content="原“飞鸟加速”已迁移至“时速网络”。账号与余额已同步并补偿 ¥5。原账号可直接登录使用；使用前请先购买套餐。" />
+  <meta property="og:type" content="website" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <style>
+    :root{
+      --bg:#0b0d12; --card:#121520; --muted:#8b93a7; --text:#e8ecf6; --brand:#5c8cff;
+      --accent:#00d3a7; --danger:#ff5b66; --warning:#ffb020; --ring:rgba(92,140,255,.35);
+      --border:#222738;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      color:var(--text); background: radial-gradient(1200px 600px at 15% 0%,#111529 0%,#0b0d12 60%) fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 56px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#8aa8ff);box-shadow:0 8px 30px rgba(92,140,255,.35), inset 0 0 12px rgba(255,255,255,.15)}
+    .brand h1{font-size:18px;letter-spacing:.4px;margin:0}
+    .pill{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .entrances{display:flex;gap:10px;flex-wrap:wrap}
+    .linkbtn{
+      font-weight:700;font-size:13px;padding:8px 12px;border-radius:999px;border:1px solid var(--ring);
+      background:linear-gradient(180deg, rgba(92,140,255,.18), rgba(92,140,255,.06));
+      box-shadow:0 6px 22px rgba(92,140,255,.18)
+    }
+
+    .alert{display:flex;gap:12px;align-items:flex-start;background:rgba(255,91,102,.1);
+      border:1px solid rgba(255,91,102,.35); border-radius:14px; padding:14px 16px; margin:12px 0 22px}
+    .alert b{color:#ffd1d4}
+    .alert .dot{width:10px;height:10px;border-radius:50%;background:var(--danger);margin-top:6px;flex:0 0 10px}
+
+    .hero{background:linear-gradient(180deg, rgba(92,140,255,.12), rgba(92,140,255,0) 60%), rgba(18,21,32,.8);
+      border:1px solid var(--border); border-radius:18px; padding:28px 24px; position:relative; overflow:hidden}
+    .hero h2{font-size:28px;line-height:1.25;margin:0 0 6px}
+    .hero p{margin:0;color:var(--muted)}
+    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:#0f1425;border:1px solid var(--border);color:#c9d1ff}
+    .badge{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 12px;border-radius:10px;background:rgba(0,211,167,.12);border:1px solid rgba(0,211,167,.35); color:#b7ffee; font-size:14px}
+    .badge.warn{background:rgba(255,176,32,.12);border-color:rgba(255,176,32,.35);color:#ffe7bb}
+
+    .grid{display:grid;grid-template-columns:1.1fr .9fr; gap:18px; margin-top:18px}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px}
+    .card h3{margin:0 0 10px;font-size:18px}
+    .list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:flex-start;padding:12px;border:1px dashed #2a2f44;border-radius:12px;background:#0e1220}
+    .li .ico{width:18px;height:18px;border-radius:6px;background:#1a2140;display:inline-grid;place-items:center;font-size:12px;color:#a7b3ff}
+    .muted{color:var(--muted)}
+    .strong{color:#fff}
+
+    .downloads .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:700px){ .downloads .row{grid-template-columns:1fr} }
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 16px;border-radius:12px;border:1px solid var(--ring);
+      background:linear-gradient(180deg, rgba(92,140,255,.18), rgba(92,140,255,.06));
+      box-shadow:0 8px 30px rgba(92,140,255,.15);
+      font-weight:600;transition:transform .08s ease, box-shadow .2s ease
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 10px 34px rgba(92,140,255,.25)}
+    .btn.sub{background:linear-gradient(180deg, rgba(0,211,167,.18), rgba(0,211,167,.06));border-color:rgba(0,211,167,.35)}
+    .btn small{font-weight:500;color:#dbe5ff;opacity:.85}
+    .btn .hint{font-size:12px;color:#cfe8ff;opacity:.8}
+
+    .note{margin-top:12px; padding:12px 14px; background:rgba(255,176,32,.12); border:1px solid rgba(255,176,32,.35);
+      border-radius:12px; color:#ffe7bb; font-size:14px}
+    .note b{color:#fff1d6}
+
+    .faq{display:grid;gap:12px}
+    .qa{border:1px solid var(--border); border-radius:12px; background:#0f1322; padding:14px}
+    .qa dt{font-weight:700;margin-bottom:6px}
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    .hl-red{color:#ff616b;font-weight:800}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);margin:22px 0}
+    .kbd{font:600 12px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:3px 6px;border-radius:6px;background:#0f1220;border:1px solid #2a2f44;color:#c9d1ff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>时速网络 · 迁移通知</h1>
+        <span class="pill">公告发布日期：2025-10-31</span>
+      </div>
+      <nav class="entrances" aria-label="官网入口">
+        <a class="linkbtn" href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a>
+        <a class="linkbtn" href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a>
+      </nav>
+    </header>
+
+    <div class="alert" role="alert" aria-live="polite">
+      <div class="dot"></div>
+      <div>
+        <b>重要提醒：</b>原 <b>“飞鸟加速”</b> 已整体迁移至 <b>“时速网络”</b>。账号、余额、邀请关系等数据已完成同步。
+        <span class="hl-red">非推荐客户端（如“小火箭”等）仅提供降级节点，请尽快切换官方推荐客户端。</span>
+      </div>
+    </div>
+
+    <section class="hero" aria-labelledby="heroTitle">
+      <h2 id="heroTitle">因不可抗力导致的品牌迁移说明</h2>
+      <p>为保障服务稳定与后续维护，我们已完成从“飞鸟加速”到“时速网络”的无缝迁移。</p>
+      <div class="tagrow" aria-label="关键信息标签">
+        <span class="tag">账号已迁移</span>
+        <span class="tag">余额已迁移</span>
+        <span class="tag">邀请关系保留</span>
+        <span class="tag">计费模式更新</span>
+      </div>
+      <div class="badge">✅ 全体用户已获 <strong>¥5</strong> 余额补偿</div>
+      <div class="badge warn" style="margin-left:8px">📌 原飞鸟账号可直接登录使用；<b>使用前需先购买套餐</b></div>
+    </section>
+
+    <div class="grid">
+      <!-- 左：变更要点 -->
+      <section class="card">
+        <h3>这次有什么变化？</h3>
+        <ul class="list">
+          <li class="li">
+            <span class="ico">①</span>
+            <div>
+              <div class="strong">品牌与数据迁移</div>
+              <div class="muted">原“飞鸟加速”账户体系已转入“时速网络”，<b>账号、余额与邀请关系</b>均已同步，无需重复注册。</div>
+            </div>
+          </li>
+          <li class="li">
+            <span class="ico">②</span>
+            <div>
+              <div class="strong">计费模式升级</div>
+              <div class="muted">时速网络采用<b>月租包段</b>模式；与飞鸟的“月租 + 流量”计费不同，更简单、可控。</div>
+            </div>
+          </li>
+          <li class="li">
+            <span class="ico">③</span>
+            <div>
+              <div class="strong">使用须知</div>
+              <div class="muted">原飞鸟账号可直接在官网登录；<b>首次使用前，请先购买套餐</b>以激活服务并获得完整节点。</div>
+            </div>
+          </li>
+          <li class="li">
+            <span class="ico">④</span>
+            <div>
+              <div class="strong">统一补偿</div>
+              <div class="muted">为弥补迁移带来的不便，<b>所有账号已补偿 ¥5 余额</b>（登录后可在账单中查看）。</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 右：下载与客户端 -->
+      <section class="card downloads" aria-labelledby="dlTitle">
+        <h3 id="dlTitle">下载官方推荐客户端</h3>
+        <div class="row" style="margin-top:8px">
+          <a class="btn" href="https://shisuwangluo.com" rel="noopener" target="_blank" aria-label="前往官网获取安卓/Windows/macOS 客户端">
+            <span>安卓 / Windows / macOS</span>
+            <small class="hint">时速网络官方客户端（官网获取）</small>
+          </a>
+          <a class="btn sub" href="https://sswl.fun" rel="noopener" target="_blank" aria-label="前往官网查看 iOS 使用说明（Sing-box）">
+            <span>iOS（苹果）</span>
+            <small class="hint">请使用 <b>Sing-box</b>（官网指引）</small>
+          </a>
+        </div>
+        <div class="note">
+          <b>提示：</b>其余第三方客户端仅提供<b>降级节点</b>，可能出现速度慢、掉线多、兼容性差等问题。
+          推荐客户端将获得<b>最佳策略与完整节点</b>支持。
+        </div>
+      </section>
+    </div>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <section class="card">
+      <h3>常见问题</h3>
+      <dl class="faq">
+        <div class="qa">
+          <dt>需要重新注册吗？</dt>
+          <dd class="muted">不需要。你可直接使用原“飞鸟加速”的账号在“时速网络”登录；如忘记密码，请使用找回功能或联系客服。</dd>
+        </div>
+        <div class="qa">
+          <dt>使用前需要做什么？</dt>
+          <dd class="muted">请先在官网 <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a> 或 <a href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a> 购买套餐并激活，随后下载官方推荐客户端登录使用。</dd>
+        </div>
+        <div class="qa">
+          <dt>为什么第三方客户端速度不理想？</dt>
+          <dd class="muted">非推荐客户端仅提供<b class="hl-red">降级节点</b>，无法获得最新策略与完整线路。为最佳体验，请使用官方推荐客户端。</dd>
+        </div>
+      </dl>
+    </section>
+
+    <footer>
+      如需协助，请联系在线客服或提交工单（建议附上平台、客户端与问题发生时间）。
+      <br />
+      快捷键：<span class="kbd">Ctrl</span> + <span class="kbd">D</span> 收藏此页，随时查看最新通知。
+    </footer>
+  </div>
+</body>
+</html>
