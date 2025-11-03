@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>迁移通知｜时速网络</title>
 
-  <!-- 强制禁缓存（浏览器与中间代理的兜底） -->
+  <!-- 禁缓存兜底 -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -13,209 +13,132 @@
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
 
   <style>
-    :root{
-      --bg:#ffffff; --fg:#111111; --muted:#666666; --border:#e6e6e6;
-      --link:#0b57d0; --btn:#111111; --btnfg:#ffffff; --radius:12px;
-      --wrap: 780px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font: 15px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:var(--link); text-decoration:none}
-    main.wrap{max-width:var(--wrap); margin:0 auto; padding:24px 16px 108px}
-
-    /* 简洁排版 */
+    :root{ --bg:#fff; --fg:#111; --muted:#666; --border:#e6e6e6; --link:#0b57d0; --radius:12px; --wrap:780px; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:var(--link);text-decoration:none}
+    main.wrap{max-width:var(--wrap);margin:0 auto;padding:24px 16px 108px}
     header{margin:4px 0 16px}
-    h1{margin:0 0 6px; font-size:20px; font-weight:800; line-height:1.3}
-    .sub{color:var(--muted); font-size:13px}
-
-    section.card{
-      border:1px solid var(--border); border-radius:var(--radius);
-      background:#fff; padding:18px; margin-top:14px;
-    }
-    h2{font-size:16px; margin:0 0 10px}
+    h1{margin:0 0 6px;font-size:20px;font-weight:800;line-height:1.3}
+    .sub{color:var(--muted);font-size:13px}
+    section.card{border:1px solid var(--border);border-radius:var(--radius);background:#fff;padding:18px;margin-top:14px}
+    h2{font-size:16px;margin:0 0 10px}
     p{margin:10px 0}
-    ul{margin:8px 0 0; padding:0 0 0 18px}
+    ul{margin:8px 0 0;padding:0 0 0 18px}
     li{margin:6px 0}
-
-    .grid-2{display:grid; grid-template-columns:1fr; gap:10px}
-    @media (min-width:560px){ .grid-2{ grid-template-columns:1fr 1fr } }
-
-    .btn{
-      display:block; text-align:center; padding:14px 12px; border-radius:10px;
-      border:1px solid #222; background:var(--btn); color:var(--btnfg); font-weight:800;
-    }
-    .btn.alt{background:#fff; color:#111; border-color:#222}
-
-    .tip{background:#fafafa; border:1px solid var(--border); border-radius:10px; padding:10px; font-size:14px; margin-top:10px}
-    code{font:600 13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:#f4f6f8; border:1px solid var(--border); padding:2px 6px; border-radius:6px; color:#111}
-
-    footer{margin-top:18px; color:var(--muted); font-size:13px; text-align:center; padding-bottom:calc(12px + env(safe-area-inset-bottom))}
-
-    /* 移动端底部快捷入口 */
-    .dock{
-      position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--border);
-      padding:10px 12px calc(10px + env(safe-area-inset-bottom)); display:grid; grid-template-columns:1fr 1fr; gap:8px;
-    }
-    .dock a{display:block; text-align:center; padding:12px 10px; border:1px solid #222; border-radius:999px; font-weight:800}
-    .dock a.primary{background:#111; color:#fff}
-    .dock a.secondary{background:#fff; color:#111}
-    @media (min-width:760px){ .dock{display:none} }
-
-    .note{font-size:13px; color:#333; background:#fff7d6; border:1px solid #ffe7a1; border-radius:10px; padding:10px; margin-top:10px}
+    .grid-2{display:grid;grid-template-columns:1fr;gap:10px}
+    @media (min-width:560px){.grid-2{grid-template-columns:1fr 1fr}}
+    .btn{display:block;text-align:center;padding:14px 12px;border-radius:10px;border:1px solid #222;font-weight:800}
+    .btn.primary{background:#111;color:#fff}
+    .btn.secondary{background:#fff;color:#111}
+    .tip{background:#fafafa;border:1px solid var(--border);border-radius:10px;padding:10px;font-size:14px;margin-top:10px}
+    code{font:600 13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f4f6f8;border:1px solid var(--border);padding:2px 6px;border-radius:6px;color:#111}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+    .dock{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .dock a{display:block;text-align:center;padding:12px 10px;border:1px solid #222;border-radius:999px;font-weight:800}
+    .dock a.primary{background:#111;color:#fff}
+    .dock a.secondary{background:#fff;color:#111}
+    @media (min-width:760px){.dock{display:none}}
   </style>
 </head>
 <body>
-  <noscript>
-    <div style="max-width:780px;margin:0 auto;padding:8px 16px">
-      <div class="note">提示：为确保显示最新页面，请按 <b>Ctrl/⌘ + F5</b> 强制刷新。</div>
-    </div>
-  </noscript>
-
   <main class="wrap" role="main">
     <header>
       <h1>时速网络 · 迁移通知</h1>
-      <div class="sub">原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系等已完成同步。</div>
+      <div class="sub">原“飞鸟加速”已整体迁移至“时速网络”，账号/余额/邀请关系已同步。</div>
     </header>
 
-    <!-- 入口 -->
     <section class="card" aria-labelledby="go">
-      <h2 id="go">入口</h2>
+      <h2 id="go">快速进入</h2>
       <div class="grid-2" style="margin-top:6px">
-        <a class="btn" href="https://shisuwangluo.com" target="_blank" rel="noopener">主入口 · shisuwangluo.com</a>
-        <a class="btn alt" href="https://sswl.fun" target="_blank" rel="noopener">备用入口 · sswl.fun</a>
+        <a class="btn primary" href="https://shisuwangluo.com" target="_blank" rel="noopener">主入口 · shisuwangluo.com</a>
+        <a class="btn secondary" href="https://sswl.fun" target="_blank" rel="noopener">备用入口 · sswl.fun</a>
       </div>
-      <div class="tip">原“飞鸟加速”账号可直接登录；首次使用前请先购买套餐以激活完整服务与节点。</div>
+      <div class="tip">原账号直接登录；首次使用请先购买套餐以激活完整节点。</div>
     </section>
 
-    <!-- 迁移背景与目的（详细说明） -->
-    <section class="card" aria-labelledby="why">
-      <h2 id="why">迁移背景与目的</h2>
-      <p>为保障服务的长期稳定、网络策略的统一与后续维护效率，我们已完成从「飞鸟加速」至「时速网络」的品牌与系统迁移。此次迁移覆盖用户侧账户、订单、余额与邀请关系等关键数据，并在架构与策略层面进行统一，便于后续持续优化节点策略、风控规则与客户端适配。</p>
-      <p>迁移后，我们采用更明确的计费方式与更集中化的客户端推荐策略，减少因客户端差异导致的连接不稳、掉线或兼容性问题，同时增强节点调度的可控性与可观测性。</p>
-    </section>
-
-    <!-- 关键变化（详细） -->
-    <section class="card" aria-labelledby="changes">
-      <h2 id="changes">关键变化</h2>
+    <section class="card" aria-labelledby="info">
+      <h2 id="info">关键信息</h2>
       <ul>
-        <li><strong>品牌与数据</strong>：原站的账号、余额、邀请关系已完整同步到「时速网络」，无需重复注册。</li>
-        <li><strong>计费模式</strong>：采用 <strong>月租包段</strong> 模式，区别于“月租+流量”的组合计费，结算更简单、成本更可控。</li>
-        <li><strong>客户端策略</strong>：iOS 端推荐使用 <strong>Sing-box</strong>；其他第三方客户端仅提供降级节点（速度/稳定性/策略匹配有限）。安卓/Windows/macOS 请从官网获取官方客户端以获得完整策略与最佳体验。</li>
-        <li><strong>使用顺序</strong>：先在官网购买套餐并激活服务，再登录客户端导入订阅/或使用内置入口，避免首次登录未激活导致的“无节点/受限节点”体验。</li>
-        <li><strong>优惠政策</strong>：结算时输入优惠码 <code>10save</code>，立减 ¥10（活动期内有效）。</li>
+        <li><strong>计费</strong>：采用 <strong>月租包段</strong> 模式。</li>
+        <li><strong>客户端</strong>：iOS 用 <strong>Sing-box</strong>；其他第三方仅提供降级节点。</li>
+        <li><strong>优惠</strong>：结算输入 <code>10save</code> 立减 ¥10。</li>
       </ul>
     </section>
 
-    <!-- 操作指引（详细） -->
     <section class="card" aria-labelledby="steps">
-      <h2 id="steps">操作指引</h2>
-      <ol style="margin:8px 0 0; padding:0 0 0 18px">
-        <li>访问主入口 <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a>（或备用入口 <a href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a>）。</li>
-        <li>使用原「飞鸟加速」账号直接登录；如忘记密码，可通过找回流程或联系在线客服协助。</li>
-        <li>在「商城/套餐」中选择合适的 <strong>月租包段</strong> 并完成支付：结算页可输入优惠码 <code>10save</code> 立减 ¥10。</li>
-        <li>前往「下载/文档」获取官方推荐客户端：<strong>iOS 用 Sing-box</strong>，安卓/Windows/macOS 使用官网提供的官方客户端。</li>
-        <li>在客户端导入订阅或使用内置入口完成登录，确认策略/规则集更新完成后即可使用。</li>
-      </ol>
-      <div class="tip">若遇到“可登录但速度慢/频繁掉线”，多数为客户端与策略不匹配或本地网络限制，优先切换至推荐客户端并更新至最新版本。</div>
+      <h2 id="steps">使用步骤</h2>
+      <ul>
+        <li>打开主/备入口，使用原账号登录。</li>
+        <li>在“套餐”选择月租包段并支付（可用 <code>10save</code>）。</li>
+        <li>按文档下载推荐客户端，导入订阅后使用。</li>
+      </ul>
     </section>
 
-    <!-- 常见问题（详细） -->
     <section class="card" aria-labelledby="faq">
       <h2 id="faq">常见问题</h2>
-      <p><strong>Q1：是否需要重新注册？</strong><br>不需要。直接用原账号登录即可。数据（余额、邀请关系）已同步；若发现异常，请立即联系在线客服核对。</p>
-      <p><strong>Q2：为什么不推荐某些第三方客户端？</strong><br>非推荐客户端往往在握手细节、DNS 策略、规则集兼容与重试策略上与服务端存在差异，因此仅提供降级节点用于兼容访问。为避免体验受限，请使用推荐客户端。</p>
-      <p><strong>Q3：支付后没有节点或显示受限？</strong><br>请先确认套餐是否已生效；若仍无效，退出客户端重新登录并刷新订阅；iOS 请确认已使用 Sing-box 并更新至最新版。</p>
-      <p><strong>Q4：出现无法连接/仅个别网站无法访问？</strong><br>检查本地网络（运营商合规限制/校园网/政企网）与 DNS 设置；若使用了系统级安全软件/劫持类加速器，请临时关闭测试。</p>
-      <p><strong>Q5：如何联系人工支持？</strong><br>建议在官网提交工单并附上平台类型、客户端、问题时间点与大致描述，便于快速定位处理。</p>
+      <p><strong>需要重新注册吗？</strong> 不需要，直接登录。</p>
+      <p><strong>支付后无节点？</strong> 先确认套餐生效；如仍无，刷新订阅/重登客户端。</p>
+      <p><strong>连接不稳？</strong> 使用推荐客户端并更新到最新版。</p>
     </section>
 
-    <footer>
-      需要帮助：请在官网提交工单或联系在线客服（建议附平台、客户端与问题时间点）。
-    </footer>
+    <footer>需要帮助：请在官网提交工单或联系在线客服。</footer>
   </main>
 
-  <!-- 移动端底部快捷入口 -->
+  <!-- 移动端快捷入口 -->
   <nav class="dock" aria-label="快速入口">
     <a class="primary" href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a>
     <a class="secondary" href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a>
   </nav>
 
-  <!-- 强制版本跳转（URL 自带 v 则跳过），并注册极简 SW 实现统一落地 + 网络优先 -->
+  <!-- 强制版本参数 + 极简 SW：统一落地 & 网络优先，避免旧界面 -->
   <script>
     (function () {
-      // 1) URL 自带版本参数避免命中历史缓存；若无则追加并替换当前地址
+      // 1) URL 强制带 v，避免历史缓存命中
       (function ensureVersionParam() {
         try {
           var u = new URL(location.href);
           if (!u.searchParams.get('v')) {
             u.searchParams.set('v', Date.now().toString());
-            // replace 不入历史，避免回退形成循环
             location.replace(u.toString());
-            return; // 后续逻辑在刷新后执行
+            return;
           }
         } catch (e) {}
       })();
 
-      // 2) 清理旧 SW（尽力）后注册新 SW
-      (function registerFreshSW() {
+      // 2) 注册极简 SW：所有站内导航落地到本页；资源走 cache: 'reload'
+      (function registerSW() {
         if (!('serviceWorker' in navigator)) return;
 
-        // 先尝试卸载旧注册，尽力避免陈旧脚本残留
+        // 清理可能存在的旧 SW
         navigator.serviceWorker.getRegistrations?.().then(function (regs) {
-          (regs || []).forEach(function (r) {
-            // 与本页无关的旧 scope 直接清理；同 scope 的也触发更新
-            try { r.unregister(); } catch (e) {}
-          });
+          (regs || []).forEach(function (r) { try { r.unregister(); } catch(e){} });
         }).finally(function () {
-          var LANDING = new URL(location.href).pathname || '/';
           var swCode = `
             const LANDING='${(new URL(location.href)).pathname || '/'}';
             const VERSION='${Date.now()}';
-
             self.addEventListener('install', e => self.skipWaiting());
             self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
-
             self.addEventListener('fetch', e => {
-              const req = e.request;
-              const url = new URL(req.url);
-
-              // 仅处理本站请求
+              const req = e.request; const url = new URL(req.url);
               if (url.origin !== location.origin) return;
-
-              // 所有导航请求统一落地到本页（防止子页面命中历史缓存/旧构建）
               if (req.mode === 'navigate' && url.pathname !== LANDING) {
-                e.respondWith(fetch(LANDING + '?v=' + VERSION, { cache: 'reload' }));
-                return;
+                e.respondWith(fetch(LANDING + '?v=' + VERSION, { cache: 'reload' })); return;
               }
-
-              // 其余资源强制网络优先并绕过缓存
               e.respondWith(fetch(req, { cache: 'reload' }));
             });
           `;
           var swURL = URL.createObjectURL(new Blob([swCode], { type: 'text/javascript' }));
-
-          // 作用域挂到根，使任意子路径都能被 SW 接管
           navigator.serviceWorker.register(swURL, { scope: '/' }).catch(function(){});
         });
       })();
 
-      // 3) 给站外入口（你的两个主站）自动补 v 参数，尽量规避对方侧的中间层缓存
-      (function bumpExternalLinks() {
+      // 3) 给外部入口自动补 v，尽量绕过中间层缓存
+      (function bumpLinks() {
         var ver = (new URL(location.href)).searchParams.get('v') || Date.now().toString();
         document.addEventListener('DOMContentLoaded', function () {
           document.querySelectorAll('a[href^="https://shisuwangluo.com"], a[href^="https://sswl.fun"]').forEach(function (a) {
-            try {
-              var u = new URL(a.href);
-              if (!u.searchParams.get('v')) {
-                u.searchParams.set('v', ver);
-                a.href = u.toString();
-              }
-            } catch (e) {}
+            try { var u = new URL(a.href); if (!u.searchParams.get('v')) { u.searchParams.set('v', ver); a.href = u.toString(); } } catch(e){}
           });
         });
       })();
