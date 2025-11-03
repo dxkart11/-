@@ -4,260 +4,122 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>迁移通知｜时速网络</title>
-  <meta name="description" content="原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系等已同步；采用月租包段模式。原飞鸟账号可直接登录使用，首次使用前需先购买套餐。购买时输入优惠码 10save 立减 ¥10。" />
-  <meta name="theme-color" content="#0b0d12" />
+
+  <!-- 兜底禁缓存 -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="robots" content="noarchive" />
   <meta name="format-detection" content="telephone=no,email=no,address=no" />
-  <link rel="preconnect" href="https://shisuwangluo.com" crossorigin>
-  <link rel="preconnect" href="https://sswl.fun" crossorigin>
+
   <style>
-    :root{
-      --bg:#0b0d12; --card:#121520; --muted:#9aa3b5; --text:#eef2fb; --brand:#5c8cff;
-      --accent:#00d3a7; --danger:#ff5b66; --ring:rgba(92,140,255,.35); --border:#222738;
-      --radius:14px;
+    :root { --bg:#fff; --fg:#111; --muted:#666; --border:#e5e5e5; --link:#0b57d0; --btn:#111; --btnfg:#fff; --radius:12px; }
+    * { box-sizing:border-box }
+    html, body { height:100% }
+    body {
+      margin:0; background:var(--bg); color:var(--fg);
+      font: 15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-      background:#0b0d12; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      -webkit-tap-highlight-color:transparent;
+    a { color:var(--link); text-decoration:none }
+    .wrap { max-width:720px; margin:0 auto; padding:24px 16px 100px }
+    header { margin:8px 0 16px }
+    h1 { font-size:18px; line-height:1.3; margin:0 0 6px; font-weight:700 }
+    .note { color:var(--muted); font-size:13px }
+    .card {
+      border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-top:12px; background:#fff;
     }
-    a{color:inherit;text-decoration:none}
-    :focus-visible{outline:2px solid var(--brand); outline-offset:2px}
-
-    .topbar{
-      position:sticky; top:0; z-index:50; background:#0d1222cc; backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid #1e2440;
+    .list { margin:8px 0 0; padding:0 0 0 18px }
+    .list li { margin:6px 0 }
+    .btns { display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px }
+    @media (min-width:520px){ .btns{ grid-template-columns:1fr 1fr } }
+    .btn {
+      display:block; text-align:center; padding:14px 12px; border-radius:10px;
+      border:1px solid var(--fg); background:var(--btn); color:var(--btnfg); font-weight:700;
     }
-    .topbar-inner{display:flex; align-items:center; gap:8px; padding:10px 14px; max-width:1000px; margin:0 auto}
-    .logo{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),#8aa8ff)}
-    .tb-title{font-weight:800; font-size:14px; letter-spacing:.2px}
-    .entrances{margin-left:auto; display:flex; gap:8px}
-    .linkbtn{
-      display:inline-flex; align-items:center; gap:6px; font-weight:800; font-size:13px;
-      padding:10px 14px; min-height:48px; border-radius:999px; border:1px solid var(--ring);
-      background:#111733;
+    .btn.alt { background:#fff; color:var(--fg); border-color:#222 }
+    .tip { background:#fafafa; border:1px solid var(--border); border-radius:10px; padding:10px; font-size:14px; margin-top:10px }
+    footer { margin-top:18px; color:var(--muted); font-size:13px; text-align:center; padding-bottom:calc(12px + env(safe-area-inset-bottom)) }
+    .dock {
+      position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--border);
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom)); display:grid; grid-template-columns:1fr 1fr; gap:8px;
     }
-
-    .wrap{max-width:1000px; margin:0 auto; padding:16px 14px 92px}
-    header{display:flex; align-items:center; justify-content:space-between; gap:10px; margin:6px 0 10px}
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand h1{font-size:clamp(16px,4vw,18px); margin:0}
-    .pill{font-size:12px; color:var(--muted)}
-
-    .alert{
-      display:flex; gap:10px; align-items:flex-start; background:#2a1013; border:1px solid #5a1f26;
-      border-radius:var(--radius); padding:12px; margin:10px 0 14px; line-height:1.5
-    }
-    .alert b{color:#ffd4d7}
-    .alert .dot{width:10px;height:10px;border-radius:50%;background:var(--danger);margin-top:6px;flex:0 0 10px}
-
-    .hero{
-      background:#12172a; border:1px solid var(--border); border-radius:calc(var(--radius) + 2px);
-      padding:16px; line-height:1.6
-    }
-    .hero h2{margin:0 0 6px; font-size:clamp(18px,5vw,24px)}
-    .hero p{margin:0; color:var(--muted)}
-
-    .cta-col{display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px}
-    .cta{
-      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
-      padding:14px; min-height:56px; border-radius:14px; border:1px solid var(--ring);
-      background:linear-gradient(180deg, rgba(92,140,255,.2), rgba(92,140,255,.08));
-      font-weight:800; letter-spacing:.3px; text-align:center;
-    }
-    .cta small{opacity:.9; font-weight:600}
-    .cta.alt{background:linear-gradient(180deg, rgba(0,211,167,.22), rgba(0,211,167,.08)); border-color:rgba(0,211,167,.35)}
-
-    .badge{display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:8px 10px;
-      border-radius:10px; background:#0c211d; border:1px solid rgba(0,211,167,.35); color:#b7ffec; font-size:14px}
-    .badge.coupon{background:#0e1c2e; border-color:#3a5aa8; color:#dbe7ff}
-    .badge.warn{background:#2a240f; border-color:#66551b; color:#ffe9b5}
-
-    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin-top:12px}
-    .card h3{margin:0 0 8px; font-size:16px}
-    .list{display:grid; gap:8px; margin:0; padding:0; list-style:none}
-    .li{display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:flex-start; padding:10px; border:1px dashed #2a2f44; border-radius:12px; background:#0e1220}
-    .ico{width:18px;height:18px;border-radius:6px;background:#1a2140;display:inline-grid;place-items:center;font-size:12px;color:#a7b3ff}
-    .muted{color:var(--muted)}
-    .strong{color:#fff}
-
-    .row{display:grid; grid-template-columns:1fr; gap:10px}
-    @media (min-width:760px){ .row{grid-template-columns:1fr 1fr} }
-    .btn{
-      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-      padding:14px; min-height:56px; border-radius:12px; border:1px solid var(--ring);
-      background:#101632; font-weight:800; text-align:center;
-    }
-    .btn.sub{background:#0f1f1c; border-color:rgba(0,211,167,.35)}
-    .btn .hint{font-size:12px; opacity:.9}
-
-    .note{margin-top:10px; padding:10px; background:#2a240f; border:1px solid #5c4a17; border-radius:12px; color:#ffe9b5; font-size:14px}
-    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);margin:16px 0}
-
-    .faq{display:grid; gap:10px}
-    .qa{border:1px solid var(--border); border-radius:12px; background:#0f1322; padding:12px}
-    .qa dt{font-weight:700; margin-bottom:6px}
-
-    footer{margin-top:18px; color:var(--muted); font-size:13px; text-align:center; padding-bottom: calc(12px + env(safe-area-inset-bottom))}
-
-    .dock{
-      position:fixed; left:0; right:0; bottom:0; z-index:60; padding:
-        10px 12px calc(10px + env(safe-area-inset-bottom));
-      background:#0c1122e6; backdrop-filter:saturate(140%) blur(8px); border-top:1px solid #1e2440;
-      display:grid; grid-template-columns:1fr 1fr; gap:8px;
-    }
-    .dock a{
-      display:flex; align-items:center; justify-content:center; gap:6px; text-align:center;
-      padding:12px 10px; min-height:48px; border-radius:999px; border:1px solid var(--ring); font-weight:800;
-      background:#121a3c;
-    }
-    .dock a.alt{background:#0e231d; border-color:rgba(0,211,167,.35)}
-    @media (min-width:760px){ .dock{display:none} }
-
-    @media (prefers-reduced-motion:reduce){
-      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
-    }
-    .code{
-      font:700 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-      padding:6px 10px; border-radius:8px; background:#0f1428; border:1px solid #2a355a; color:#cfe0ff
-    }
+    .dock a { display:block; text-align:center; padding:12px 10px; border:1px solid #222; border-radius:999px; color:#fff; background:#111; font-weight:700 }
+    .dock a.alt { background:#fff; color:#111 }
+    @media (min-width:760px){ .dock { display:none } }
+    code { font:600 13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:#f4f6f8; border:1px solid var(--border); padding:2px 6px; border-radius:6px; color:#111 }
   </style>
 </head>
 <body>
-  <div class="topbar" role="navigation" aria-label="官网入口">
-    <div class="topbar-inner">
-      <div class="logo" aria-hidden="true"></div>
-      <div class="tb-title">官网入口</div>
-      <nav class="entrances">
-        <a class="linkbtn" href="https://shisuwangluo.com" target="_blank" rel="noopener" aria-label="打开 shisuwangluo.com">🚀 shisuwangluo.com</a>
-        <a class="linkbtn" href="https://sswl.fun" target="_blank" rel="noopener" aria-label="打开 sswl.fun">🌐 sswl.fun</a>
-      </nav>
-    </div>
-  </div>
-
-  <main class="wrap">
+  <main class="wrap" role="main">
     <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1>时速网络 · 迁移通知</h1>
-      </div>
-      <span class="pill">公告发布日期：2025-10-31</span>
+      <h1>时速网络 · 迁移通知</h1>
+      <div class="note">原“飞鸟加速”已整体迁移至“时速网络”。账号、余额、邀请关系均已同步。</div>
     </header>
 
-    <div class="alert" role="alert">
-      <div class="dot"></div>
-      <div>
-        <b>重要提醒：</b>原 <b>“飞鸟加速”</b> 已整体迁移至 <b>“时速网络”</b>。账号、余额、邀请关系等已完成同步。
-        非推荐客户端（如“小火箭”）仅提供降级节点，请尽快使用官方推荐客户端。
+    <section class="card" aria-labelledby="go">
+      <h2 id="go" style="font-size:16px;margin:0 0 8px">入口</h2>
+      <div class="btns">
+        <a class="btn" href="https://shisuwangluo.com" target="_blank" rel="noopener">主入口 · shisuwangluo.com</a>
+        <a class="btn alt" href="https://sswl.fun" target="_blank" rel="noopener">备用入口 · sswl.fun</a>
       </div>
-    </div>
-
-    <section class="hero" aria-labelledby="heroTitle">
-      <h2 id="heroTitle">迁移说明</h2>
-      <p>为保障服务稳定与后续维护，我们已完成从“飞鸟加速”至“时速网络”的迁移。</p>
-
-      <div class="cta-col" aria-label="官网入口">
-        <a class="cta" href="https://shisuwangluo.com" target="_blank" rel="noopener">
-          进入官网：shisuwangluo.com
-          <small>购买套餐 / 下载客户端 / 登录</small>
-        </a>
-      </div>
-      <div class="cta-col" aria-label="备用入口" style="margin-top:6px">
-        <a class="cta alt" href="https://sswl.fun" target="_blank" rel="noopener">
-          备用入口：sswl.fun
-          <small>镜像同源 / 访问更稳</small>
-        </a>
-      </div>
-
-      <!-- 优惠券提示 -->
-      <div class="badge coupon" aria-live="polite">
-        🎟️ 购买时输入优惠码 <span class="code">10save</span> ，立减 <b>¥10</b>
-      </div>
-
-      <div class="badge warn">📌 原飞鸟账号可直接登录；<b>首次使用前须先购买套餐</b></div>
+      <div class="tip">原飞鸟账号可直接登录；首次使用前请先购买套餐以激活。</div>
     </section>
 
-    <section class="card">
-      <h3>关键变化</h3>
+    <section class="card" aria-labelledby="info">
+      <h2 id="info" style="font-size:16px;margin:0 0 8px">说明</h2>
       <ul class="list">
-        <li class="li">
-          <span class="ico">①</span>
-          <div>
-            <div class="strong">品牌与数据</div>
-            <div class="muted">账号、余额、邀请关系全部迁移至“时速网络”，无需重复注册。</div>
-          </div>
-        </li>
-        <li class="li">
-          <span class="ico">②</span>
-          <div>
-            <div class="strong">计费模式</div>
-            <div class="muted">采用<b>月租包段</b>模式，与“月租+流量”不同，更简单、可控。</div>
-          </div>
-        </li>
-        <li class="li">
-          <span class="ico">③</span>
-          <div>
-            <div class="strong">使用须知</div>
-            <div class="muted">请在 <b>shisuwangluo.com / sswl.fun</b> 登录；首次使用前先购买套餐以激活服务与完整节点。</div>
-          </div>
-        </li>
-        <li class="li">
-          <span class="ico">④</span>
-          <div>
-            <div class="strong">优惠券</div>
-            <div class="muted">购买时输入优惠码 <span class="code">10save</span> ，可立减 <b>¥10</b>。</div>
-          </div>
-        </li>
+        <li>计费模式：采用 <strong>月租包段</strong>。</li>
+        <li>客户端：iOS 请使用 <strong>Sing-box</strong>；其余第三方客户端仅提供降级节点。</li>
+        <li>优惠：结算时输入优惠码 <code>10save</code>，立减 ¥10。</li>
       </ul>
     </section>
 
-    <section class="card">
-      <h3>下载官方推荐客户端</h3>
-      <div class="row" style="margin-top:6px">
-        <a class="btn" href="https://shisuwangluo.com" target="_blank" rel="noopener" aria-label="安卓/Windows/macOS 下载">
-          安卓 / Windows / macOS
-          <span class="hint">时速网络官方客户端（官网获取）</span>
-        </a>
-        <a class="btn sub" href="https://sswl.fun" target="_blank" rel="noopener" aria-label="iOS 使用 Sing-box 指引">
-          iOS（苹果）
-          <span class="hint">请使用 Sing-box（官网指引）</span>
-        </a>
-      </div>
-      <div class="note">
-        其余第三方客户端仅提供<b>降级节点</b>，可能速度慢/掉线多/兼容性差。官方推荐客户端享<b>最佳策略与完整节点</b>。
-      </div>
-    </section>
-
-    <div class="divider" role="separator" aria-hidden="true"></div>
-
-    <section class="card">
-      <h3>常见问题</h3>
-      <dl class="faq">
-        <div class="qa">
-          <dt>需要重新注册吗？</dt>
-          <dd class="muted">不需要。直接用原“飞鸟加速”账号登录“时速网络”；忘记密码可使用找回或联系人工支持。</dd>
-        </div>
-        <div class="qa">
-          <dt>使用前要做什么？</dt>
-          <dd class="muted">请先在 <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a> 或 <a href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a> 购买套餐并激活，然后下载官方推荐客户端登录使用。</dd>
-        </div>
-        <div class="qa">
-          <dt>是否有优惠？</dt>
-          <dd class="muted">结算时输入优惠码 <span class="code">10save</span> ，立减 <b>¥10</b>。</dd>
-        </div>
-      </dl>
-    </section>
-
     <footer>
-      如需协助，请提交工单或联系在线客服（建议附平台、客户端与问题时间点）。
+      需要帮助：请在官网提交工单或联系在线客服（建议附平台、客户端与问题时间点）。
     </footer>
   </main>
 
   <nav class="dock" aria-label="快速入口">
-    <a href="https://shisuwangluo.com" target="_blank" rel="noopener" aria-label="主入口 shisuwangluo.com">🚀 主入口 · shisuwangluo.com</a>
-    <a class="alt" href="https://sswl.fun" target="_blank" rel="noopener" aria-label="备用入口 sswl.fun">🌐 备用入口 · sswl.fun</a>
+    <a href="https://shisuwangluo.com" target="_blank" rel="noopener">shisuwangluo.com</a>
+    <a class="alt" href="https://sswl.fun" target="_blank" rel="noopener">sswl.fun</a>
   </nav>
+
+  <!-- 极简 Service Worker：统一落地 + 绕过旧缓存 -->
+  <script>
+    (function () {
+      if (!('serviceWorker' in navigator)) return;
+
+      // 以当前文档路径作为统一落地页
+      const LANDING = new URL(location.href).pathname || '/';
+      const VERSION = '2025-11-03T15:00:00+09:00'; // 每次发布可改这个值
+
+      const swCode = `
+        const LANDING='${LANDING}';
+        const VERSION='${Date.now()}';
+
+        self.addEventListener('install', e => self.skipWaiting());
+        self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+
+        self.addEventListener('fetch', e => {
+          const req = e.request;
+          const url = new URL(req.url);
+
+          if (url.origin !== location.origin) return;
+
+          // 统一把站内所有导航请求重定向到落地页
+          if (req.mode === 'navigate' && url.pathname !== LANDING) {
+            e.respondWith(fetch(LANDING + '?v=' + VERSION, { cache: 'reload' }));
+            return;
+          }
+
+          // 其他请求强制从网络获取（尽力绕过本地/中间缓存）
+          e.respondWith(fetch(req, { cache: 'reload' }));
+        });
+      `;
+      const swURL = URL.createObjectURL(new Blob([swCode], { type: 'text/javascript' }));
+      navigator.serviceWorker.register(swURL, { scope: '/' }).catch(()=>{});
+    })();
+  </script>
 </body>
 </html>
